@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "iconv": "^2.3.0",
+    "request": "^2.81.0"
+  },
+  "devDependencies": {
+    "commander": "^2.11.0"
+  }
+}
