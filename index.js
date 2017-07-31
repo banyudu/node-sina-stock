@@ -1,8 +1,6 @@
 'use strict'
 
 const request = require('request')
-const Iconv = require('iconv').Iconv
-const iconv = new Iconv('GBK', 'UTF-8')
 
 const SinaStock = {}
 
