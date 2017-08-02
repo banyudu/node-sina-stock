@@ -12,6 +12,8 @@ module.exports = SinaStock
 // 3：”26.91″，当前价格；
 // 4：”27.55″，今日最高价；
 // 5：”26.20″，今日最低价；
+// 30: 2017-08-03 日期
+// 31: 11:11:11 时间
 
 function line2Object(line) {
   let result = {}
@@ -28,6 +30,8 @@ function line2Object(line) {
       current: data[3],
       high: data[4],
       low: data[5],
+      date: data[30],
+      time: data[31],
     }
   }
   return result
