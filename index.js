@@ -1,19 +1,11 @@
 'use strict'
 
 const request = require('request')
+const iconv = require('iconv-lite')
 
 const SinaStock = {}
 
 module.exports = SinaStock
-
-// 0：”大秦铁路”，股票名称；
-// 1：”27.55″，今日开盘价；
-// 2：”27.25″，昨日收盘价；
-// 3：”26.91″，当前价格；
-// 4：”27.55″，今日最高价；
-// 5：”26.20″，今日最低价；
-// 30: 2017-08-03 日期
-// 31: 11:11:11 时间
 
 function line2Object(line) {
   let result = {}
@@ -43,7 +35,11 @@ SinaStock.stock = (codes, callback) => {
   }
 
   const url = `http://hq.sinajs.cn/list=${codes.join(',')}`
-  request(url, (err, response, body) => {
+  request({
+    url,
+    encoding: null,
+  }, (err, response, body) => {
+    body = iconv.decode(body, 'gb2312')
     body = body.split('\n').filter(e => !/^\s*$/.test(e)) || []
     const result = body.map(line => line2Object(line))
     callback(err, result)
