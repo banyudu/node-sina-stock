@@ -1,6 +1,6 @@
 {
   "name": "sina-stock",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Sina stock node module",
   "main": "index.js",
   "dependencies": {
